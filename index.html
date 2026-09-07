@@ -451,11 +451,11 @@
     </footer>
 
   <!-- FIREBASE ENGINE & REALTIME COMMENTS -->
+<!-- FIREBASE ENGINE & REALTIME COMMENTS WITH REPLY -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // Konfigurasi Firebase KMG
   const firebaseConfig = {
     apiKey: "AIzaSyAPxqY_qGYgQySRRcFds7U2A5jPepkzbEM",
     authDomain: "kmg-official.firebaseapp.com",
@@ -466,26 +466,26 @@
     measurementId: "G-R5KS29BR6E"
   };
 
-  // Inisialisasi Database
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // Kirim Komentar ke Firestore
   const commentForm = document.getElementById('comment-form');
   const commentsList = document.getElementById('comments-list');
+  const nameInput = document.getElementById('comment-name');
+  const textInput = document.getElementById('comment-text');
 
   if (commentForm) {
     commentForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nameInput = document.getElementById('comment-name')?.value.trim();
-      const textInput = document.getElementById('comment-text')?.value.trim();
+      const name = nameInput.value.trim();
+      const text = textInput.value.trim();
 
-      if (!textInput) return;
+      if (!text) return;
 
       try {
         await addDoc(collection(db, "comments"), {
-          name: nameInput || "Guest / Cyber-Anon",
-          text: textInput,
+          name: name || "Guest / Cyber-Anon",
+          text: text,
           timestamp: serverTimestamp()
         });
         commentForm.reset();
@@ -495,7 +495,7 @@
     });
   }
 
-  // Tampilkan Komentar Secara Realtime
+  // Tampilkan Komentar & Tambah Fitur Reply
   const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
   onSnapshot(q, (snapshot) => {
     if (!commentsList) return;
@@ -505,11 +505,25 @@
       const timeStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleString('id-ID') : 'Baru saja';
       const commentEl = document.createElement('div');
       commentEl.className = 'comment-card';
-      commentEl.style.cssText = 'background: #12141d; border-left: 3px solid #f39c12; padding: 12px; margin-bottom: 10px; border-radius: 4px;';
+      commentEl.style.cssText = 'background: #12141d; border-left: 3px solid #f39c12; padding: 12px; margin-bottom: 12px; border-radius: 4px; position: relative;';
+      
       commentEl.innerHTML = `
-        <div style="font-weight: bold; color: #f39c12;">${data.name} <span style="font-size: 0.8em; color: #888; font-weight: normal;">• ${timeStr}</span></div>
-        <div style="color: #e0e0e0; margin-top: 5px;">${data.text}</div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-weight: bold; color: #f39c12;">${data.name} <span style="font-size: 0.8em; color: #888; font-weight: normal;">• ${timeStr}</span></div>
+          <button type="button" class="reply-btn" data-name="${data.name}" style="background: transparent; border: 1px solid #f39c12; color: #f39c12; font-size: 0.75em; padding: 2px 8px; border-radius: 4px; cursor: pointer;">Reply</button>
+        </div>
+        <div style="color: #e0e0e0; margin-top: 6px; word-break: break-word;">${data.text}</div>
       `;
+
+      // Fungsi Tombol Reply
+      const replyBtn = commentEl.querySelector('.reply-btn');
+      replyBtn.addEventListener('click', () => {
+        const targetName = replyBtn.getAttribute('data-name');
+        textInput.value = `@${targetName} `;
+        textInput.focus();
+        textInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
       commentsList.appendChild(commentEl);
     });
   });
