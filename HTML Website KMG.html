@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabul Music Grup (KMG) - Official Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(rgba(11, 12, 16, 0.85), rgba(11, 12, 16, 0.95)), 
+                        url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .tagline {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #f39c12;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Style Logo KMG */
+        .hero-logo {
+    width: 260px;              
+    height: 260px;              
+    object-fit: cover;          
+    object-position: center;     
+    border-radius: 50%;         
+    margin-bottom: 1.5rem;
+    border: 2px solid #f39c12;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+
+        .hero-logo:hover {
+            transform: scale(1.03);
+        }
+
+        .subtitle {
+            max-width: 650px;
+            font-size: 1.05rem;
+            color: #c5c6c7;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border: 2px solid #f39c12;
+            border-radius: 50px;
+            color: #f39c12;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .btn-main:hover {
+            background-color: #f39c12;
+            color: #0b0c10;
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Maker & Contact Area */
+        .maker-box {
+            margin-top: 2.5rem;
+            padding: 1.2rem 2rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            max-width: 650px;
+        }
+
+        .maker-text-id {
+            font-size: 0.9em;
+            color: #e2e8f0;
+            margin-bottom: 4px;
+        }
+
+        .maker-text-en {
+            font-size: 0.8em;
+            color: #94a3b8;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background: transparent;
+            border: 1px solid #f39c12;
+            border-radius: 6px;
+            color: #f39c12;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #f39c12;
+            color: #0b0c10;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about-card {
+            background: #1f2833;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #f39c12;
+        }
+
+        .about-text-id {
+            font-size: 1rem;
+            color: #e2e8f0;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .about-text-en {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Artists Grid */
+        .artist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .artist-card {
+            background: #1f2833;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .artist-card:hover {
+            border-color: #f39c12;
+            transform: translateY(-5px);
+        }
+
+        .artist-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.2rem auto;
+            display: block;
+            border: 3px solid #f39c12;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.25);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .artist-card:hover .artist-avatar {
+            transform: scale(1.06);
+            border-color: #00f0ff;
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .artist-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f39c12;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .platform-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .btn-platform {
+            display: block;
+            padding: 10px 16px;
+            background: #0b0c10;
+            color: #fff;
+            border: 1px solid #45f3c022;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-platform:hover {
+            background: #f39c12;
+            color: #0b0c10;
+            border-color: #f39c12;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid #1f2833;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-logo {
+                max-width: 240px;
+            }
+            .subtitle {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="tagline">Independent Music Label / AI Creative Project</div>
+        <img src="https://i.imgur.com/MSKPWv3.png" alt="Kabul Music Group (KMG) Logo" class="hero-logo">
+
+        <p class="subtitle">
+            An boundless musical space built on universal appeal
+        </p>
+        <a href="#artists" class="btn-main">
+            Discover Our Artists &rarr;
+        </a>
+
+        <!-- Maker / Creator Contact Box -->
+        <div class="maker-box">
+            <p class="maker-text-id">Ingin berkenalan dengan kreator di balik musik-musik AI ini?</p>
+            <p class="maker-text-en">Want to meet the creators behind these AI tracks?</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/kabul_izwaldy?igsi=MWNxZ3FsbHU1a2xjNQ==" target="_blank" class="social-btn">Instagram</a>
+                <a href="mailto:izwaldykabul@gmail.com" class="social-btn">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Label History & Purpose) -->
+    <section class="section" style="padding-bottom: 1rem;">
+        <h2 class="section-title">About KMG</h2>
+        <div class="about-card">
+            <p class="about-text-id">
+                <strong>Kabul Music Grup (KMG)</strong> adalah label musik independen dan proyek kreatif digital yang didirikan oleh <strong>Kabul Izwaldy</strong>. KMG berfokus pada eksplorasi batas-batas baru dalam produksi musik dengan memanfaatkan teknologi AI, melahirkan karya-karya lintas genre—mulai dari Pop, Electronic Dance Music, hingga K-Pop—di bawah naungan berbagai persona artistik virtual.
+            </p>
+            <p class="about-text-en">
+                <strong>Kabul Music Grup (KMG)</strong> is an independent music label and digital creative project founded by <strong>Kabul Izwaldy</strong>. KMG focuses on exploring new frontiers in music production using AI technology, crafting cross-genre releases—ranging from Pop, Electronic Dance Music, to K-Pop—under various virtual artist personas.
+            </p>
+        </div>
+    </section>
+
+    <!-- Artists & Platform Section -->
+    <section id="artists" class="section">
+        <h2 class="section-title">Our Artists & Releases</h2>
+        <p class="section-subtitle">
+            Dengarkan rilisan resmi kami di berbagai platform musik digital<br>
+            <span style="font-size: 0.85em; color: #94a3b8; font-style: italic;">Listen to our official releases on major music streaming platforms</span>
+        </p>
+
+        <div class="artist-grid">
+            <!-- Artist 1: BLUE HOUR -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/3XxkvPB.png" alt="BLUE HOUR" class="artist-avatar">
+                    <div class="artist-name">BLUE HOUR</div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/0Jdih2KUG6coi0W89Wtq0G?si=371b060a41ec47d9" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=KntfEr_UxvA&si=LJj_p07b7VVPGJsD" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+
+            <!-- Artist 2: 3.I.C -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/5UW4eaU.jpeg" alt="3.I.C" class="artist-avatar">
+                    <div class="artist-name">3.I.C</div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/5UYS0ecNkiM28UD1fveVdA?si=c1ab45e494994c52" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=zG8iaMBqW1Q&si=MF7o2T6Z6XOAGP6A" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+
+            <!-- Artist 3: Raine -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/pay8YYZ.jpeg" alt="Raine" class="artist-avatar">
+                    <div class="artist-name">Raine</div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/7nKKH2GPCoySAPE655DYvH?si=d7PPlPFgQOiSkkVFfEMbbA" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=AZa5fUhbV8E&list=RDAMVMAZa5fUhbV8E" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+
+            <!-- Artist 4: Nayara Clarissa -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/P9Rbq5W.jpeg" alt="Nayara Clarissa" class="artist-avatar">
+                    <div class="artist-name">Nayara Clarissa</div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/4Inhw2JUShSSJFovu7b2Np?si=IxSY9Nb-TlOjO2VM9d3xLg" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=hvzWmTWyVeM&list=LM" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+
+            <!-- Artist 5: Faza Ramadhan -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/9Htf7Bj.jpeg" alt="Faza Ramadhan" class="artist-avatar">
+                    <div class="artist-name">Faza Ramadhan</div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/78cnbLFXOOjU6gpoIOCOQv?si=-uPToiiiTKqxbxEai3B6yA" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=oKf-0M4djhA&si=nWMw0KrqqNtwnt96" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+
+            <!-- Artist 6: HIKARI SORANE -->
+            <div class="artist-card">
+                <div>
+                    <img src="https://i.imgur.com/IVJRg6t.jpeg" alt="HIKARI SORANE" class="artist-avatar">
+                    <div class="artist-name">HIKARI SORANE <br><small style="font-size:0.7em; color:#aaa;">(光 空音)</small></div>
+                </div>
+                <div class="platform-btns">
+                    <a href="https://open.spotify.com/artist/6e3HUNFt7lm90aZzSGy7US?si=boIzAjlmRBCLBhldYXzAug" target="_blank" class="btn-platform">Spotify Artist Profile</a>
+                    <a href="https://music.youtube.com/watch?v=gBHGfX030X0&si=pL2_XBp_oEIVCvxL" target="_blank" class="btn-platform">YouTube Music</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION KOMENTAR & FEEDBACK KMG (MINIMALIST) -->
+    <!-- SECTION KOMENTAR & FEEDBACK KMG -->
+<section id="comments-section" style="max-width: 900px; margin: 30px auto 50px auto; padding: 20px; background: rgba(15, 23, 42, 0.85); border: 1px solid #f39c12; border-radius: 12px; box-shadow: 0 0 15px rgba(243, 156, 18, 0.2); font-family: sans-serif; color: #fff;">
+    
+    <h2 style="color: #f39c12; text-align: center; margin-top: 0; margin-bottom: 8px; font-size: 1.4em; letter-spacing: 1.5px; text-transform: uppercase;">
+        Feedback & Discussions
+    </h2>
+    
+    <p style="text-align: center; color: #cbd5e1; font-size: 0.9em; margin: 0 0 4px 0;">
+        Tulis komentar, laporan link mati, atau pesan di sini.
+    </p>
+    <p style="text-align: center; color: #64748b; font-size: 0.82em; font-style: italic; margin: 0 0 20px 0;">
+        Leave a comment, report broken links, or send a message here.
+    </p>
+
+    <!-- Form Input Komentar -->
+    <form id="commentForm" onsubmit="submitComment(event)" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="commenterName" placeholder="Nama / Name" required style="flex: 1; min-width: 180px; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; outline: none; font-size: 0.9em;">
+            <input type="email" id="commenterEmail" placeholder="Email (Opsional / Optional)" style="flex: 1; min-width: 180px; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; outline: none; font-size: 0.9em;">
+        </div>
+        
+        <textarea id="commentText" placeholder="Tulis komentar... / Write a comment..." rows="3" required style="padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; resize: vertical; outline: none; font-size: 0.9em; font-family: inherit;"></textarea>
+        
+        <button type="submit" style="padding: 10px 20px; background: #f39c12; color: #0b0c10; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; transition: all 0.3s ease; align-self: flex-end;">
+            Kirim / Submit
+        </button>
+    </form>
+</section>
+    <footer>
+        <p>&copy; 2026 Kabul Music Grup (KMG). All Rights Reserved.</p>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+    function submitComment(event) {
+        event.preventDefault();
+        
