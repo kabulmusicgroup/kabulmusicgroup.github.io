@@ -414,35 +414,37 @@
             </div>
         </div>
     </section>
+<!-- SECTION KOMENTAR & FEEDBACK KMG -->
+<section id="comments-section" style="max-width: 900px; margin: 30px auto 50px auto; padding: 20px; background: rgba(15, 23, 42, 0.85); border: 1px solid #f39c12; border-radius: 12px; box-shadow: 0 0 15px rgba(243, 156, 18, 0.2);">
 
-    <!-- SECTION KOMENTAR & FEEDBACK KMG (MINIMALIST) -->
-    <!-- SECTION KOMENTAR & FEEDBACK KMG -->
-<section id="comments-section" style="max-width: 900px; margin: 30px auto 50px auto; padding: 20px; background: rgba(15, 23, 42, 0.85); border: 1px solid #f39c12; border-radius: 12px; box-shadow: 0 0 15px rgba(243, 156, 18, 0.2); font-family: sans-serif; color: #fff;">
-    
-    <h2 style="color: #f39c12; text-align: center; margin-top: 0; margin-bottom: 8px; font-size: 1.4em; letter-spacing: 1.5px; text-transform: uppercase;">
-        Feedback & Discussions
-    </h2>
-    
-    <p style="text-align: center; color: #cbd5e1; font-size: 0.9em; margin: 0 0 4px 0;">
-        Tulis komentar, laporan link mati, atau pesan di sini.
-    </p>
-    <p style="text-align: center; color: #64748b; font-size: 0.82em; font-style: italic; margin: 0 0 20px 0;">
-        Leave a comment, report broken links, or send a message here.
-    </p>
+  <h2 style="color: #f39c12; text-align: center; margin-top: 0; margin-bottom: 8px; font-size: 1.4em; letter-spacing: 1.5px; text-transform: uppercase;">
+    Feedback & Discussions
+  </h2>
 
-    <!-- Form Input Komentar -->
-    <form id="commentForm" onsubmit="submitComment(event)" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="text" id="commenterName" placeholder="Nama / Name" required style="flex: 1; min-width: 180px; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; outline: none; font-size: 0.9em;">
-            <input type="email" id="commenterEmail" placeholder="Email (Opsional / Optional)" style="flex: 1; min-width: 180px; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; outline: none; font-size: 0.9em;">
-        </div>
-        
-        <textarea id="commentText" placeholder="Tulis komentar... / Write a comment..." rows="3" required style="padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; resize: vertical; outline: none; font-size: 0.9em; font-family: inherit;"></textarea>
-        
-        <button type="submit" style="padding: 10px 20px; background: #f39c12; color: #0b0c10; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px; transition: all 0.3s ease; align-self: flex-end;">
-            Kirim / Submit
-        </button>
-    </form>
+  <p style="text-align: center; color: #cbd5e1; font-size: 0.9em; margin: 0 0 4px 0;">
+    Tulis komentar, laporan link mati, atau pesan di sini.
+  </p>
+  <p style="text-align: center; color: #64748b; font-size: 0.82em; font-style: italic; margin: 0 0 20px 0;">
+    Leave a comment, report broken links, or send a message here.
+  </p>
+
+  <!-- Form Input Komentar -->
+  <form id="comment-form" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px;">
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <input type="text" id="comment-name" placeholder="Nama / Name" style="flex: 1; min-width: 180px; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; outline: none;">
+    </div>
+
+    <textarea id="comment-text" placeholder="Tulis komentar... / Write a comment..." rows="3" required style="padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; resize: vertical; outline: none;"></textarea>
+
+    <button type="submit" style="padding: 10px 20px; background: #f39c12; color: #0b0c10; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">
+      Kirim / Submit
+    </button>
+  </form>
+
+  <!-- Container Daftar Komentar -->
+  <div id="comments-list"></div>
+
+</section>
 </section>
     <footer>
         <p>&copy; 2026 Kabul Music Grup (KMG). All Rights Reserved.</p>
